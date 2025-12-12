@@ -36,4 +36,12 @@ print("Age: " + student[2])
 print("Border: " + student[3])
 print("Hall of Residence: " + student[4])
 
+"""
+Next:
+1. Exception Handling
+2. Search student
+3. Update student
+4. Delete student
+5. Optmize code where needed
+"""
 
