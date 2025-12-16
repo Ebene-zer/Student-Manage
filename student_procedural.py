@@ -11,29 +11,32 @@ student_list= []
 # Take student details (Use a loop to get user input repeatedly)
 while True:
     option = input("Enter: 'Add' (to add Student) | 'Q' (to quit): ")
-    student_data = {} # An empty dictionry for each entery
-    
-    if option.lower() == 'add':
-        Student_ID = input("Enter Student ID: ")
+
+    if option.lower() == 'q':
+        print("Good bye!")
+        break
+    elif option.lower() == 'add':
+        student_data = {} # An empty dictionry for each entery
+
+        student_ID = input("Enter Student ID: ")
         name = input("Enter Student name: ")
         age = input("Enter student age: ")
         residential_status = input("Boarder?: Y/N (Enter Y for Yes and N for No).")
         hall_of_residence = "N/A"
         if residential_status.lower() == "y":
             hall_of_residence = input("Enter hall of residence: ")
-        else:
-            print(hall_of_residence)
+        
 
-        # Now add (in this case append) student data to the student list
-        student_list.append(Student_ID)
-        student_list.append(name)
-        student_list.append(age)
-        student_list.append(residential_status)
-        student_list.append(hall_of_residence)
-        print("Student Added Successfully!\n") # Give feedback upon a successful add
-    elif option.lower() == 'q':
-        print("Good bye!")
-        break
+        # Assign the inputs to dictionary keys
+        student_data['student_ID'] = student_ID
+        student_data['name'] = name
+        student_data['age'] = age
+        student_data['residential_status'] = residential_status
+        student_data['hall_of_residence'] = hall_of_residence
+
+        # Append the populated dictionary to the list
+        student_list.append(student_data)
+        print("Student with Added Successfully!\n") # Give feedback upon a successful add
 
 # # Print to user details of the added student
 # print("=" * 5 + " Student Details " + "=" * 5)
