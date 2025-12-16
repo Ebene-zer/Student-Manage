@@ -21,7 +21,7 @@ while True:
         student_ID = input("Enter Student ID: ")
         name = input("Enter Student name: ")
         age = input("Enter student age: ")
-        residential_status = input("Boarder?: Y/N (Enter Y for Yes and N for No).")
+        residential_status = input("Boarder? Y/N (Enter Y for Yes and N for No): ")
         hall_of_residence = "N/A"
         if residential_status.lower() == "y":
             hall_of_residence = input("Enter hall of residence: ")
@@ -38,13 +38,12 @@ while True:
         student_list.append(student_data)
         print("Student with Added Successfully!\n") # Give feedback upon a successful add
 
-# # Print to user details of the added student
-# print("=" * 5 + " Student Details " + "=" * 5)
-# print("Student ID: " + student_list[0])
-# print("Name: " + student_list[1])
-# print("Age: " + student_list[2])
-# print("Border: " + student_list[3])
-# print("Hall of Residence: " + student_list[4])
+        # Print to user details of the added student
+        print("=" * 5 + " Student Details " + "=" * 5)
+        for student in student_list:
+            print(student)
+
+
 
 """
 Next:
