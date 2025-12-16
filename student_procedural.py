@@ -41,7 +41,11 @@ while True:
         # Print to user details of the added student
         print("=" * 5 + " Student Details " + "=" * 5)
         for student in student_list:
-            print(student)
+            print(f"Student ID: {student['student_ID']}")
+            print(f"Name: {student['name']}")
+            print(f"Age: {student['age']}")
+            print(f"Residential Status: {student['residential_status']}")
+            print(f"Hall of Residence: {student['hall_of_residence']}")
 
 
 
