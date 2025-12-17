@@ -10,7 +10,7 @@ student_list= []
 
 # Take student details (Use a loop to get user input repeatedly)
 while True:
-    option = input("Enter: 'Add' (to add Student) | 'Q' (to quit): ")
+    option = input("Enter: 'Add' (to add Student) | 'Search' (to search for student) | 'Q' (to quit): ")
 
     if option.lower() == 'q':
         print("Good bye!")
@@ -36,7 +36,7 @@ while True:
 
         # Append the populated dictionary to the list
         student_list.append(student_data)
-        print("Student with Added Successfully!\n") # Give feedback upon a successful add
+        print("Student Added Successfully!\n") # Give feedback upon a successful add
 
         # Print to user details of the added student
         print("=" * 5 + " Student Details " + "=" * 5)
@@ -47,6 +47,13 @@ while True:
             print(f"Age: {student.get('age', "Not Found")}")
             print(f"Residential Status: {student.get('residential_status', "Not Found")}")
             print(f"Hall of Residence: {student.get('hall_of_residence', "Not Found")}")
+    
+    elif option.lower() == "search":
+        search_query = input("Enter student name or ID to search: ")
+
+    else:
+        print("Invalid input.")
+        continue
 
 
 
