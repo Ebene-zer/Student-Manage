@@ -6,7 +6,19 @@ This file have the solution implemented using the procedural paradigm
 print("=" * 5 + " Hello! Welcome To Fuachie Student Manage. " + "=" * 5 )
 
 # Create a list to store student details in dictionaries
-student_list= []
+student_list = []
+
+def search_for_student(query, list_of_students): # The search function
+    search_results = []
+    for data in list_of_students:
+        if query in data['name'].lower(): # Check if the query is in student's name (case-insensitive)
+            search_results.append(data)
+        # Or check if the query matches the student's ID
+        elif query in data['student_ID']:
+            search_results.append(data)
+    return search_results
+
+
 
 # Take student details (Use a loop to get user input repeatedly)
 while True:
@@ -48,11 +60,24 @@ while True:
             print(f"Residential Status: {student.get('residential_status', "Not Found")}")
             print(f"Hall of Residence: {student.get('hall_of_residence', "Not Found")}")
     
-    elif option.lower() == "search":
-        search_query = input("Enter student name or ID to search: ")
+    elif option.lower() == "search": 
+        search_query = input("Enter student name or ID to search: ").strip().lower() # Search for student
+        # call the search function here and pass two agruments (search_query and the student_list)
+        found_students = search_for_student(search_query, student_list)
+        if found_students:
+            print(f"\nFound {len(found_students)} student(s): ")
+            for student in found_students:
+                print(f"""\nStudent ID: {student['student_ID']}
+Name: {student['name']}
+Age: {student['age']}
+Residential Status: {student['residential_status']}
+Hall of Residence: {student['hall_of_residence']}
+""")
+        else:
+            print("\nNo students found macthing your criteria.")
 
     else:
-        print("Invalid input.")
+        print("Invalid input: Choose correction option from the main menu.")
         continue
 
 
