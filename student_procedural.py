@@ -28,12 +28,12 @@ def delete_student():
 
 # Take student details (Use a loop to get user input repeatedly)
 while True:
-    option = input("Enter: 'Add' (to add Student) | 'Search' (to search for student) | 'Q' (to quit): ")
+    option = input("Enter: 'A' (to add Student) | 'S' (to search for student) | 'Q' (to quit): ")
 
     if option.lower() == 'q':
         print("Good bye!")
         break
-    elif option.lower() == 'add':
+    elif option.lower() == 'a':
         student_data = {} # An empty dictionry for each entery
 
         student_ID = input("Enter Student ID: ")
@@ -60,20 +60,22 @@ while True:
         print("=" * 5 + " Student Details " + "=" * 5)
         for student in student_list:
             #Use .get() (returns None or a specified default if the key is not found)
-            print(f"Student ID: {student.get('student_ID', "Not Found")}")
-            print(f"Name: {student.get('name', "Not Found")}")
-            print(f"Age: {student.get('age', "Not Found")}")
-            print(f"Residential Status: {student.get('residential_status', "Not Found")}")
-            print(f"Hall of Residence: {student.get('hall_of_residence', "Not Found")}")
+            print(f"""Student ID: {student.get('student_ID', "Not Found")}
+Name: {student.get('name', "Not Found")}
+Age: {student.get('age', "Not Found")}
+Residential Status: {student.get('residential_status', "Not Found")}
+Hall of Residence: {student.get('hall_of_residence', "Not Found")}
+""")
+
     
-    elif option.lower() == "search": 
+    elif option.lower() == "s": 
         search_query = input("Enter student name or ID to search: ").strip().lower() # Search for student
         # call the search function here and pass two agruments (search_query and the student_list)
         found_students = search_for_student(search_query, student_list)
         if found_students:
             print(f"\nFound {len(found_students)} student(s): ")
             for student in found_students:
-                print(f"""\nStudent ID: {student['student_ID']}
+                print(f"""Student ID: {student['student_ID']}
 Name: {student['name']}
 Age: {student['age']}
 Residential Status: {student['residential_status']}
