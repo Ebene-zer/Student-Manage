@@ -19,6 +19,12 @@ def search_for_student(query, list_of_students): # The search function
     return search_results
 
 
+def update_student():
+    pass
+
+def delete_student():
+    pass
+
 
 # Take student details (Use a loop to get user input repeatedly)
 while True:
@@ -85,7 +91,7 @@ Hall of Residence: {student['hall_of_residence']}
 """
 Next:
 1. Exception Handling
-2. Search student
+2. Search student - Done
 3. Update student
 4. Delete student
 5. Optmize code where needed
